@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.122.0">
+	<meta name="generator" content="Hugo 0.123.3">
     <meta charset="utf-8" />
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
     <meta
@@ -93,7 +93,7 @@
     id="toc"
     class="toc-list-h1"
     x-data="tocController"
-    x-init="load([{&#34;id&#34;:&#34;linked-list&#34;,&#34;level&#34;:1,&#34;sub&#34;:[{&#34;id&#34;:&#34;heading&#34;,&#34;level&#34;:2,&#34;title&#34;:&#34;第一题&#34;},{&#34;id&#34;:&#34;heading-1&#34;,&#34;level&#34;:2,&#34;sub&#34;:[],&#34;title&#34;:&#34;第二题&#34;}],&#34;title&#34;:&#34;Linked List&#34;},{&#34;id&#34;:&#34;stack&#34;,&#34;level&#34;:1,&#34;sub&#34;:[{&#34;sub&#34;:[]}],&#34;title&#34;:&#34;Stack&#34;}])"
+    x-init="load([{&#34;id&#34;:&#34;linked-list&#34;,&#34;level&#34;:1,&#34;sub&#34;:[{&#34;id&#34;:&#34;21-merge-two-sorted-lists&#34;,&#34;level&#34;:2,&#34;sub&#34;:[{&#34;id&#34;:&#34;heading&#34;,&#34;level&#34;:3,&#34;title&#34;:&#34;题面&#34;},{&#34;id&#34;:&#34;heading-1&#34;,&#34;level&#34;:3,&#34;title&#34;:&#34;题解&#34;}],&#34;title&#34;:&#34;21. Merge Two Sorted Lists&#34;},{&#34;id&#34;:&#34;heading-2&#34;,&#34;level&#34;:2,&#34;sub&#34;:[],&#34;title&#34;:&#34;第二题&#34;}],&#34;title&#34;:&#34;Linked List&#34;},{&#34;id&#34;:&#34;stack&#34;,&#34;level&#34;:1,&#34;sub&#34;:[{&#34;sub&#34;:[]}],&#34;title&#34;:&#34;Stack&#34;}])"
     @scroll.window="onScroll()">
     
     <template x-for="row in rows">
@@ -174,10 +174,53 @@
 
 
 
-<h2 id="heading">第一题</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>xxx
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>xxxxxx
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>xx
+<h2 id="21-merge-two-sorted-lists">21. Merge Two Sorted Lists</h2>
+
+
+
+
+  
+
+
+
+<h3 id="heading">题面</h3>
+<p>有两个链表，其中的节点都按照节点值有序排序，请你将这两个链表合并为一个有序链表。</p>
+
+
+
+
+  
+
+
+
+<h3 id="heading-1">题解</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> ListNode<span style="color:#f92672">*</span> ListLink;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ListNode<span style="color:#f92672">*</span> mergeTwoLists(ListNode<span style="color:#f92672">*</span> list1, ListNode<span style="color:#f92672">*</span> list2) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (list1 <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span>) <span style="color:#66d9ef">return</span> list2;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (list2 <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span>) <span style="color:#66d9ef">return</span> list1;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 将头节点较小的链表放在 list1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (list1<span style="color:#f92672">-&gt;</span>val <span style="color:#f92672">&gt;</span> list2<span style="color:#f92672">-&gt;</span>val) swap(list1, list2);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 遍历 list2，按大小插入 list1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">auto</span> ls1 <span style="color:#f92672">=</span> list1, ls2 <span style="color:#f92672">=</span> list2;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (ls2 <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (ls1<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span> and ls2<span style="color:#f92672">-&gt;</span>val <span style="color:#f92672">&gt;</span> ls1<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">-&gt;</span>val) {}
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> {  <span style="color:#75715e">// 插入节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                ListLink temp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode(ls2<span style="color:#f92672">-&gt;</span>val, ls1<span style="color:#f92672">-&gt;</span>next);
+</span></span><span style="display:flex;"><span>                ls1<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> temp;
+</span></span><span style="display:flex;"><span>                ls2 <span style="color:#f92672">=</span> ls2<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            ls1 <span style="color:#f92672">=</span> ls1<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list1;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div>
 
 
@@ -186,7 +229,7 @@
 
 
 
-<h2 id="heading-1">第二题</h2>
+<h2 id="heading-2">第二题</h2>
 
 
 
