@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta name="generator" content="Hugo 0.122.0">
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>
+      3000ye Code Blog
+    </title>
+    
+
+
+
+
+
+  
+  
+
+<link
+  href="/styles/screen.min.7beabc4f9d9bfe5b57c7a6c83ae4447e5f03bcb05196c65ca8202597024e45db.css"
+  rel="stylesheet"
+  media="screen"
+  integrity="sha256-e&#43;q8T52b/ltXx6bIOuREfl8DvLBRlsZcqCAllwJORds=" />
+<link
+  href="/styles/print.min.d18444d6ed86c4b57f446a2a0bf25716b1cf940c2ad149915f5bcae09d823c2b.css"
+  rel="stylesheet"
+  media="print"
+  integrity="sha256-0YRE1u2GxLV/RGoqC/JXFrHPlAwq0UmRX1vK4J2CPCs=" />
+
+    
+
+
+
+
+  
+
+<script
+  src="/js/index.ed8a1ec413a37196b7e82a66a93dc39e391c391bcac52504ae2eb3e53dfee78f.js"
+  integrity="sha256-7YoexBOjcZa36CpmqT3DnjkcORvKxSUEri6z5T3&#43;548="
+  defer></script>
+
+    
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body class="index" x-data="{ navOpen: false }" x-cloak>
+    <a
+      href="#"
+      id="nav-button"
+      @click="navOpen = !navOpen"
+      :class="{'open': navOpen }">
+      <span>
+        NAV
+        <img src="/images/navbar.png" />
+      </span>
+    </a>
+    <div class="toc-wrapper" :class="{'open': navOpen }">
+      
+      <img src="/images/CC.png" class="logo"/>
+
+      
+        <div class="search" x-data="searchController">
+          <input
+            x-model.debounce.100ms="query"
+            type="search"
+            class="search"
+            id="input-search"
+            placeholder="Search" />
+          <ul
+            class="search-results visible"
+            x-show="results.length > 0"
+            x-transition.duration.700ms>
+            <template x-for="item in results">
+              <li>
+                <a x-text="item.title" :href="`#${item.id}`"></a>
+              </li>
+            </template>
+          </ul>
+        </div>
+      
+      
+  
+  
+    
+  
+  <ul
+    id="toc"
+    class="toc-list-h1"
+    x-data="tocController"
+    x-init="load([{&#34;id&#34;:&#34;linked-list&#34;,&#34;level&#34;:1,&#34;sub&#34;:[{&#34;id&#34;:&#34;heading&#34;,&#34;level&#34;:2,&#34;title&#34;:&#34;第一题&#34;},{&#34;id&#34;:&#34;heading-1&#34;,&#34;level&#34;:2,&#34;sub&#34;:[],&#34;title&#34;:&#34;第二题&#34;}],&#34;title&#34;:&#34;Linked List&#34;},{&#34;id&#34;:&#34;stack&#34;,&#34;level&#34;:1,&#34;sub&#34;:[{&#34;sub&#34;:[]}],&#34;title&#34;:&#34;Stack&#34;}])"
+    @scroll.window="onScroll()">
+    
+    <template x-for="row in rows">
+      <li>
+        <a
+          x-text="row.title"
+          @click="click(row)"
+          :href="`#${row.id}`"
+          class="toc-link"
+          x-bind="rowClass(row)"></a>
+        
+          <ul x-show="row.open" x-bind="transitions()" class="da-toc-list-h2">
+            <template x-for="row in row.sub">
+              <li>
+                <a
+                  x-text="row.title"
+                  @click="click(row)"
+                  :href="`#${row.id}`"
+                  class="toc-link"
+                  x-bind="rowClass(row)"></a>
+                
+                  <ul
+                    x-show="row.open"
+                    x-bind="transitions()"
+                    class="toc-list-h3">
+                    <template x-for="row in row.sub">
+                      <li>
+                        <a
+                          x-text="row.title"
+                          @click="click(row)"
+                          :href="`#${row.id}`"
+                          class="toc-link"
+                          x-bind="rowClass(row)"></a>
+                      </li>
+                    </template>
+                  </ul>
+                
+              </li>
+            </template>
+          </ul>
+        
+      </li>
+    </template>
+  </ul>
+
+      
+      
+        <ul class="toc-footer">
+          
+            <li>
+              <a href='https://3000ye.com'>3000ye Blog</a>
+            </li>
+          
+        </ul>
+      
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+  
+    
+  
+  
+    
+
+
+
+
+
+<h1 id="linked-list">Linked List</h1>
+
+
+
+
+  
+
+
+
+<h2 id="heading">第一题</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>xxx
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>xxxxxx
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>xx
+</span></span></code></pre></div>
+
+
+
+  
+
+
+
+<h2 id="heading-1">第二题</h2>
+
+
+
+
+  
+
+
+
+<h1 id="stack">Stack</h1>
+
+  
+
+      </div>
+      <div class="dark-box">
+        
+          <div
+            class="lang-selector"
+            x-data="langController"
+            x-init="initLangs([{&#34;key&#34;:&#34;cpp&#34;,&#34;name&#34;:&#34;Method One&#34;},{&#34;key&#34;:&#34;c&#34;,&#34;name&#34;:&#34;Method Two&#34;},{&#34;key&#34;:&#34;java&#34;,&#34;name&#34;:&#34;Method Three&#34;}])">
+            <template x-for="(tab, index) in tabs">
+              <a
+                x-text="tab.name"
+                :class="{ 'active': tab.active }"
+                @click="changeLanguage(index)"></a>
+            </template>
+          </div>
+        
+      </div>
+    </div>
+    
+  </body>
+</html>

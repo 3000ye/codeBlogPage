@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3000ye Code Blog</title>
+    <link>http://code.3000ye.com/</link>
+    <description>Recent content on 3000ye Code Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="http://code.3000ye.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode</title>
+      <link>http://code.3000ye.com/leetcode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://code.3000ye.com/leetcode/</guid>
+      <description> Linked List 第一题 xxx xxxxxx xx 第二题 Stack </description>
+    </item>
+  </channel>
+</rss>

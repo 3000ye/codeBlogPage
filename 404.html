@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>
+      404 Page not found
+    </title>
+    
+
+
+
+
+
+  
+  
+
+<link
+  href="/styles/screen.min.7beabc4f9d9bfe5b57c7a6c83ae4447e5f03bcb05196c65ca8202597024e45db.css"
+  rel="stylesheet"
+  media="screen"
+  integrity="sha256-e&#43;q8T52b/ltXx6bIOuREfl8DvLBRlsZcqCAllwJORds=" />
+<link
+  href="/styles/print.min.d18444d6ed86c4b57f446a2a0bf25716b1cf940c2ad149915f5bcae09d823c2b.css"
+  rel="stylesheet"
+  media="print"
+  integrity="sha256-0YRE1u2GxLV/RGoqC/JXFrHPlAwq0UmRX1vK4J2CPCs=" />
+
+    
+
+
+
+
+  
+
+<script
+  src="/js/index.ed8a1ec413a37196b7e82a66a93dc39e391c391bcac52504ae2eb3e53dfee78f.js"
+  integrity="sha256-7YoexBOjcZa36CpmqT3DnjkcORvKxSUEri6z5T3&#43;548="
+  defer></script>
+
+    
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body class="index" x-data="{ navOpen: false }" x-cloak>
+    <a
+      href="#"
+      id="nav-button"
+      @click="navOpen = !navOpen"
+      :class="{'open': navOpen }">
+      <span>
+        NAV
+        <img src="/images/navbar.png" />
+      </span>
+    </a>
+    <div class="toc-wrapper" :class="{'open': navOpen }">
+      
+      <img src="/images/CC.png" class="logo"/>
+
+      
+        <div class="search" x-data="searchController">
+          <input
+            x-model.debounce.100ms="query"
+            type="search"
+            class="search"
+            id="input-search"
+            placeholder="Search" />
+          <ul
+            class="search-results visible"
+            x-show="results.length > 0"
+            x-transition.duration.700ms>
+            <template x-for="item in results">
+              <li>
+                <a x-text="item.title" :href="`#${item.id}`"></a>
+              </li>
+            </template>
+          </ul>
+        </div>
+      
+      
+      
+      
+        <ul class="toc-footer">
+          
+            <li>
+              <a href='https://3000ye.com'>3000ye Blog</a>
+            </li>
+          
+        </ul>
+      
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+  <h2>Page Not Found!</h2>
+
+      </div>
+      <div class="dark-box">
+        
+          <div
+            class="lang-selector"
+            x-data="langController"
+            x-init="initLangs([{&#34;key&#34;:&#34;cpp&#34;,&#34;name&#34;:&#34;Method One&#34;},{&#34;key&#34;:&#34;c&#34;,&#34;name&#34;:&#34;Method Two&#34;},{&#34;key&#34;:&#34;java&#34;,&#34;name&#34;:&#34;Method Three&#34;}])">
+            <template x-for="(tab, index) in tabs">
+              <a
+                x-text="tab.name"
+                :class="{ 'active': tab.active }"
+                @click="changeLanguage(index)"></a>
+            </template>
+          </div>
+        
+      </div>
+    </div>
+    
+  </body>
+</html>
