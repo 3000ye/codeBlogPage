@@ -2,7 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://code.3000ye.com/leetcode/</loc>
+    <loc>http://code.3000ye.com/linkedlist/</loc>
+  </url><url>
+    <loc>http://code.3000ye.com/stack/</loc>
   </url><url>
     <loc>http://code.3000ye.com/</loc>
   </url>

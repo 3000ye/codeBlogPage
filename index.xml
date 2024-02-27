@@ -8,11 +8,18 @@
     <language>en</language>
     <atom:link href="http://code.3000ye.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>LeetCode</title>
-      <link>http://code.3000ye.com/leetcode/</link>
+      <title>Linked List</title>
+      <link>http://code.3000ye.com/linkedlist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://code.3000ye.com/leetcode/</guid>
+      <guid>http://code.3000ye.com/linkedlist/</guid>
       <description>Linked List 21. Merge Two Sorted Lists typedef ListNode* ListLink; class Solution { public: ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) { if (list1 == nullptr) return list2; if (list2 == nullptr) return list1; // 将头节点较小的链表放在 list1 if (list1-&amp;gt;val &amp;gt; list2-&amp;gt;val) swap(list1, list2); // 遍历 list2，按大小插入 list1 auto ls1 = list1, ls2 = list2; while (ls2 != nullptr) { if (ls1-&amp;gt;next != nullptr and ls2-&amp;gt;val &amp;gt; ls1-&amp;gt;next-&amp;gt;val) {} else { // 插入节点 ListLink temp = new ListNode(ls2-&amp;gt;val, ls1-&amp;gt;next); ls1-&amp;gt;next = temp; ls2 = ls2-&amp;gt;next; } ls1 = ls1-&amp;gt;next; } return list1; } }; typedef ListNode* ListLink; class Solution { public: ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) { ListLink res = new ListNode(0); auto p = res, p1 = list1, p2 = list2; while (p1 and p2) { if (p1-&amp;gt;val &amp;lt; p2-&amp;gt;val) { p-&amp;gt;next = p1; p1 = p1-&amp;gt;next; } else { p-&amp;gt;next = p2; p2 = p2-&amp;gt;next; } p = p-&amp;gt;next; } while (p1) { p-&amp;gt;next = p1; p1 = p1-&amp;gt;next; p = p-&amp;gt;next; } while (p2) { p-&amp;gt;next = p2; p2 = p2-&amp;gt;next; p = p-&amp;gt;next; } return res-&amp;gt;next; } }; class Solution { public: ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) { if (list1 == nullptr) return list2; if (list2 == nullptr) return list1; if (list1-&amp;gt;val &amp;lt;= list2-&amp;gt;val) { list1-&amp;gt;next = mergeTwoLists(list1-&amp;gt;next, list2); return list1; } else { list2-&amp;gt;next = mergeTwoLists(list1, list2-&amp;gt;next); return list2; } } }; 题面 有两个链表，其中的节点都按照节点值有序排序，请你将这两个链表合并为一个有序链表。</description>
+    </item>
+    <item>
+      <title>Stack</title>
+      <link>http://code.3000ye.com/stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://code.3000ye.com/stack/</guid>
+      <description>Stack 20. Valid Parentheses class Solution { public: bool isValid(string s) { stack&amp;lt;char&amp;gt; stk; for (auto c : s) { if (stk.size() == 0) stk.push(c); else if (stk.top() == &amp;#39;(&amp;#39; and c == &amp;#39;)&amp;#39;) stk.pop(); else if (stk.top() == &amp;#39;[&amp;#39; and c == &amp;#39;]&amp;#39;) stk.pop(); else if (stk.top() == &amp;#39;{&amp;#39; and c == &amp;#39;}&amp;#39;) stk.pop(); else stk.push(c); } return stk.size() == 0 ? true : false; } }; 题面 给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。</description>
     </item>
   </channel>
 </rss>
