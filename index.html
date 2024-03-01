@@ -1049,7 +1049,7 @@
 
 <h3 id="heading-8-1">题面</h3>
 <p>给定 <code>s</code> 和 <code>t</code> 两个字符串，当它们分别被输入到空白的文本编辑器后，如果两者相等，返回 <code>true</code> 。<code>#</code> 代表退格字符。</p>
-<p>**注意：**如果对空文本输入退格字符，文本继续为空。</p>
+<p><strong>注意</strong>：如果对空文本输入退格字符，文本继续为空。</p>
 
 
 
@@ -1242,7 +1242,28 @@
 
 
 <h2 id="1475-final-prices-with-a-special-discount-in-a-shop">1475. Final Prices With a Special Discount in a Shop</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> pii;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> finalPrices(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> prices) {
+</span></span><span style="display:flex;"><span>        stack<span style="color:#f92672">&lt;</span>pii<span style="color:#f92672">&gt;</span> stk;  <span style="color:#75715e">// 递增单调栈
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, l <span style="color:#f92672">=</span> prices.size(); i <span style="color:#f92672">&lt;</span> l; i <span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>stk.empty() and prices[i] <span style="color:#f92672">&lt;=</span> stk.top().first) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>stk.empty() and prices[i] <span style="color:#f92672">&lt;=</span> stk.top().first) {
+</span></span><span style="display:flex;"><span>                    prices[stk.top().second] <span style="color:#f92672">-=</span> prices[i];
+</span></span><span style="display:flex;"><span>                    stk.pop();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            stk.push({prices[i], i});
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> prices;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div>
 
 
 
@@ -1263,6 +1284,11 @@
 
 
 <h3 id="heading-15">题解</h3>
+<p><strong>Method One</strong>: 单调栈</p>
+<ul>
+<li>维护一个递增的单调栈，并使用 <code>pair&lt;value, idx&gt;</code> 记录价格和下标</li>
+<li>当有元素弹出时，说明遇到了更小的价格，则修改其价格 <code>prices[idx]</code></li>
+</ul>
 
   
     
