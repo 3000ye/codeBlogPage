@@ -26,7 +26,7 @@
       <link>http://code.3000ye.com/queue/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://code.3000ye.com/queue/</guid>
-      <description> Queue </description>
+      <description>Queue 387. First Unique Character in a String class Solution { public: int firstUniqChar(string s) { int ls[200]; for (auto c : s) { ls[c] ++; } for (int i = 0, l = s.size(); i &amp;lt; l; i ++) { if (ls[s[i]] == 1) return i; } return -1; } }; 题面 给定一个字符串 s ，找到 它的第一个不重复的字符，并返回它的索引 。如果不存在，则返回 -1 。&#xA;题解 Method One: 直接法&#xA;用一个数组记录每个字符出现的次数 遍历字符串，找到第一个只出现一次的字符 933. Number of Recent Calls class RecentCounter { private: queue&amp;lt;int&amp;gt; que; public: RecentCounter() {} int ping(int t) { que.</description>
     </item>
   </channel>
 </rss>
