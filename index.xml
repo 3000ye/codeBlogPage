@@ -33,7 +33,7 @@
       <link>http://code.3000ye.com/binarytree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://code.3000ye.com/binarytree/</guid>
-      <description> BinaryTree </description>
+      <description>BinaryTree 94. Binary Tree Inorder Traversal class Solution { public: vector&amp;lt;int&amp;gt; inorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; subFunction(root, res); return res; } void subFunction(TreeNode* root, vector&amp;lt;int&amp;gt;&amp;amp; res) { if (root == nullptr) return; else { subFunction(root-&amp;gt;left, res); res.push_back(root-&amp;gt;val); subFunction(root-&amp;gt;right, res); } } }; 题面 给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。&#xA;题解 Method One: 递归&#xA;初始化一个结果数组 递归遍历二叉树，并按中根序添加元素 Method Two: 迭代</description>
     </item>
   </channel>
 </rss>
